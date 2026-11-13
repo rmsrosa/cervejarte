@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atenuação e outras variáveis da fermentação | Blog Cervejarte (Ricardo Rosa)</title><link rel="canonical" href="https://cervejarte.org/blog/calcularte/atenuacao-e-outras-variaveis-da-fermentacao/">
+<link rel="alternate" type="application/rss+xml" title="Blog Cervejarte (Ricardo Rosa)" href="/blog/feed.xml">
+<link rel="stylesheet" href="/blog/assets/style.css">
+<meta name="theme-color" content="#2a1a0e"></head>
+<body>
+<header class="site"><div class="brand"><a href="/blog/" title="Blog Cervejarte (Ricardo Rosa)"><img src="/blog/assets/cabecalho.png" width="1000" height="288" alt="Blog da Cervejarte — cerveja artesanal desde 2004 — Ricardo Rosa"></a></div>
+<nav class="menu"><div class="menu-inner"><a href="/blog/">Início</a><a href="/blog/album/">Album</a><a href="/blog/sobre/">Apresentação</a><a href="/blog/calcularte/">Calcularte</a><a href="/blog/competicoes/">Competições</a></div></nav></header>
+<div class="wrap"><div class="cols"><main><article id="post-541"><h1 class="entry">Atenuação e outras variáveis da fermentação</h1><div class="entry-content"><p>A calculadora abaixo relaciona as principais variáveis associadas à fermentação.</p>
+<form action="#" id="attenuation">
+<div>
+<table border cellpadding=2 width="98%">
+<tr>
+<td align="left"> Gravidade específica original (GO)</td>
+<td> <input type="text" name="georg" size="7" maxlength="7" value="1.061" onChange="platoorg.value=Math.round(100*(668.72*georg.value - 463.37 - 205.35*georg.value*georg.value))/100; platoapa.value=Math.round(platoorg.value*(100.0-attapa.value))/100; geapa.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoapa.value+463.36)/205.35)))/1000; platoreal.value=Math.round(100*(0.1808*platoorg.value+0.8192*platoapa.value))/100; gereal.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoreal.value+463.36)/205.35)))/1000; attreal.value=Math.round(1000*(1.0-platoreal.value/platoorg.value))/10; abw.value=Math.round(10*(platoorg.value-platoreal.value)/(2.0665-0.010665*platoorg.value))/10; abv.value=Math.round(10*geapa.value*abw.value/0.79)/10; cal.value=Math.round(geapa.value*(vol.value/100)*(6.9*abw.value+4.0*(platoreal.value-0.1)));"/>g.e.</td>
+</tr>
+<tr>
+<td align="left"> Extrato original (EO)</td>
+<td> <input type="text" name="platoorg" size="7" maxlength="7" value="15" onChange="georg.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoorg.value+463.36)/205.35)))/1000; platoapa.value=Math.round(platoorg.value*(100.0-attapa.value))/100; geapa.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoapa.value+463.36)/205.35)))/1000; platoreal.value=Math.round(100*(0.1808*platoorg.value+0.8192*platoapa.value))/100; gereal.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoreal.value+463.36)/205.35)))/1000; attreal.value=Math.round(1000*(1.0-platoreal.value/platoorg.value))/10; abw.value=Math.round(10*(platoorg.value-platoreal.value)/(2.0665-0.010665*platoorg.value))/10; abv.value=Math.round(10*geapa.value*abw.value/0.79)/10; cal.value=Math.round(geapa.value*(vol.value/100)*(6.9*abw.value+4.0*(platoreal.value-0.1)));"/>P</td>
+</tr>
+<tr>
+<td align="left"> Atenuação aparente (AA)</td>
+<td> <input type="text" name="attapa" size="7" maxlength="7" value="74.5" onChange="platoapa.value=Math.round(platoorg.value*(100.0-attapa.value))/100; geapa.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoapa.value+463.36)/205.35)))/1000; platoreal.value=Math.round(100*(0.1808*platoorg.value+0.8192*platoapa.value))/100; gereal.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoreal.value+463.36)/205.35)))/1000; attreal.value=Math.round(1000*(1.0-platoreal.value/platoorg.value))/10; abw.value=Math.round(10*(platoorg.value-platoreal.value)/(2.0665-0.010665*platoorg.value))/10; abv.value=Math.round(10*geapa.value*abw.value/0.79)/10; cal.value=Math.round(geapa.value*(vol.value/100)*(6.9*abw.value+4.0*(platoreal.value-0.1)));"/>%</td>
+</tr>
+<tr>
+<td align="left"> Atenuação real (AR)</td>
+<td> <input type="text" name="attreal" size="7" maxlength="7" value="61" onChange="platoreal.value=Math.round(platoorg.value*(100.0-attreal.value))/100; gereal.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoreal.value+463.36)/205.35)))/1000; platoapa.value=Math.round(100*(platoreal.value - 0.1808*platoorg.value)/0.8192)/100; geapa.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoapa.value+463.36)/205.35)))/1000; attapa.value=Math.round(1000*(1.0-platoapa.value/platoorg.value))/10; abw.value=Math.round(10*(platoorg.value-platoreal.value)/(2.0665-0.010665*platoorg.value))/10; abv.value=Math.round(10*geapa.value*abw.value/0.79)/10; cal.value=Math.round(geapa.value*(vol.value/100)*(6.9*abw.value+4.0*(platoreal.value-0.1)));"/>%</td>
+</tr>
+<tr>
+<td align="left"> Gravidade específica final aparente (GFA)</td>
+<td> <input type="text" name="geapa" size="7" maxlength="7" value="1.015" onChange="platoapa.value=Math.round(100*(668.72*geapa.value - 463.37 - 205.35*geapa.value*geapa.value))/100; attapa.value=Math.round(1000*(1.0-platoapa.value/platoorg.value))/10; platoreal.value=Math.round(100*(0.1808*platoorg.value+0.8192*platoapa.value))/100; gereal.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoreal.value+463.36)/205.35)))/1000; attreal.value=Math.round(1000*(1.0-platoreal.value/platoorg.value))/10; abw.value=Math.round(10*(platoorg.value-platoreal.value)/(2.0665-0.010665*platoorg.value))/10; abv.value=Math.round(10*geapa.value*abw.value/0.79)/10; cal.value=Math.round(geapa.value*(vol.value/100)*(6.9*abw.value+4.0*(platoreal.value-0.1)));"/>g.e.</td>
+</tr>
+<tr>
+<td align="left"> Extrato final aparente (EFA)</td>
+<td> <input type="text" name="platoapa" size="7" maxlength="7" value="3.83" onChange="geapa.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoapa.value+463.36)/205.35)))/1000; attapa.value=Math.round(1000*(1.0-platoapa.value/platoorg.value))/10; platoreal.value=Math.round(100*(0.1808*platoorg.value+0.8192*platoapa.value))/100; gereal.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoreal.value+463.36)/205.35)))/1000; attreal.value=Math.round(1000*(1.0-platoreal.value/platoorg.value))/10; abw.value=Math.round(10*(platoorg.value-platoreal.value)/(2.0665-0.010665*platoorg.value))/10; abv.value=Math.round(10*geapa.value*abw.value/0.79)/10; cal.value=Math.round(geapa.value*(vol.value/100)*(6.9*abw.value+4.0*(platoreal.value-0.1)));"/>P</td>
+</tr>
+<tr>
+<td align="left"> Gravidade específica final real (GFR)</td>
+<td> <input type="text" name="gereal" size="7" maxlength="7" value="1.023" onChange="platoreal.value=Math.round(100*(668.72*gereal.value - 463.37 - 205.35*gereal.value*gereal.value))/100; attreal.value=Math.round(1000*(1.0-platoreal.value/platoorg.value))/10; platoapa.value=Math.round(100*(platoreal.value - 0.1808*platoorg.value)/0.8192)/100; geapa.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoapa.value+463.36)/205.35)))/1000; attapa.value=Math.round(1000*(1.0-platoapa.value/platoorg.value))/10; abw.value=Math.round(10*(platoorg.value-platoreal.value)/(2.0665-0.010665*platoorg.value))/10; abv.value=Math.round(10*geapa.value*abw.value/0.79)/10; cal.value=Math.round(geapa.value*(vol.value/100)*(6.9*abw.value+4.0*(platoreal.value-0.1)));"/>g.e.</td>
+</tr>
+<tr>
+<td align="left"> Extrato final real (EFR)</td>
+<td> <input type="text" name="platoreal" size="7" maxlength="7" value="5.85" onChange="gereal.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoreal.value+463.36)/205.35)))/1000; attreal.value=Math.round(1000*(1.0-platoreal.value/platoorg.value))/10; platoapa.value=Math.round(100*(platoreal.value - 0.1808*platoorg.value)/0.8192)/100; geapa.value=Math.round(1000*(1.6282-Math.sqrt(2.6512 - (1.*platoapa.value+463.36)/205.35)))/1000; attapa.value=Math.round(1000*(1.0-platoapa.value/platoorg.value))/10; abw.value=Math.round(10*(platoorg.value-platoreal.value)/(2.0665-0.010665*platoorg.value))/10; abv.value=Math.round(10*geapa.value*abw.value/0.79)/10; cal.value=Math.round(geapa.value*(vol.value/100)*(6.9*abw.value+4.0*(platoreal.value-0.1)));"/>P</td>
+</tr>
+<tr>
+<td align="left"> Conteúdo alcoólico por peso (ABW)</td>
+<td> <input type="text" name="abw" size="7" maxlength="7" value="4.8" readonly="readonly"/>%</td>
+</tr>
+<tr>
+<td align="left"> Conteúdo alcoólico por volume (ABV)</td>
+<td> <input type="text" name="abv" size="7" maxlength="7" value="6.2" readonly="readonly"/>%</td>
+</tr>
+<tr>
+<td align="left"> <input type="text" name="vol" size="5" maxlength="5" value="330" onChange="cal.value=Math.round(geapa.value*(vol.value/100)*(6.9*abw.value+4.0*(platoreal.value-0.1)));"/>ml contém calorias totalizando (Cal)</td>
+<td> <input type="text" name="cal" size="7" maxlength="7" value="188" readonly="readonly"/>cal</td>
+</tr>
+</table>
+<p> <br>
+ </div>
+</form>
+<p>Cálculos desse tipo estão presentes em diversos programas de cerveja. Mas vale lembrar que o cálculo do <a href="http://www.beertools.com/">BeerTools Pro</a> não é tão preciso. Ele calcula a atenuação na gravidade específica, ao invés da atenuação no extrato. Isso leva a algumas diferenças significativas, principalmente em cervejas com extrato um pouco mais alto. Não conheço direito os outros programas para saber como eles fazem.</p>
+<p>A calculadora acima implementa os seguintes cálculos:</p>
+<p>1) A relação entre gravidade específica e graus Plato (originais, aparentes e reais) explicada na página <a href="/blog/calcularte/gravidade-especifica-e-extrato/" title="Gravidade específica e extrato">Gravidade específica e extrato</a>. </p>
+<p>2) A relação aproximada obtida experimentalmente entre o extrato final real, o extrato original e o extrato final aparente, dada por</p>
+<p>$latex \text{EFR} = 0.1808 *\text{EO} + 0.8192 *\text{EFA}.$</p>
+<p>Observe que há muitas variáveis na fermentação e, dependendo da composição da receita e das condições de fermentação, o valor exato do extrato final real e das outras váriáveis que dependem disso (atenuação real, teor alcoólico e calorias) podem variar um pouco dos valores calculados pelas fórmulas.</p>
+<p>3) A atenuação aparente AA, dada pela porcentagem de redução do extrato original para o extrato final aparente:</p>
+<p>$latex \text{AA}\% = \displaystyle 100\left( 1 - \frac{\text{EFA}}{\text{EO}}\right).$</p>
+<p>4) A atenuação real AR, dada pela porcentagem de redução do extrato original para o extrato final real:</p>
+<p>$latex \text{AR}\% = \displaystyle 100\left( 1 - \frac{\text{EFR}}{\text{EO}}\right).$</p>
+<p>5) O conteúdo alcoólico em peso (ou em massa - nesse caso dá no mesmo) segundo a fórmula</p>
+<p>$latex \text{ABW}\% = \displaystyle \frac{\text{EO}-\text{EFR}}{2.0665-0.010665 * \text{EO}}.$</p>
+<p>Esta fórmula também é aproximada, pois cada tipo de açúcar tem o seu processo de fermentação, de modo que o valor exato depende da receita. Além disso, as condições de fermentação também alteram o produto.</p>
+<p>6) Conteúdo alcoólico em volume, segundo a fórmula</p>
+<p>$latex \text{ABV}\% = \displaystyle \frac{\text{GFA}*\text{ABW}\%}{0.79}.$</p>
+<p>Essa fórmula segue diretamente da gravidade específica do álcool ser aproximadamente 0,79. Com isso, o teor alcoólico em massa satisfaz</p>
+<p>$latex \begin{aligned} \text{ABW} = \displaystyle \frac{\text{massa(\'alcool)}}{\text{massa(cerveja)}} = \frac{\text{densidade(\'alcool)volume(\'alcool)}}{\text{densidade(cerveja)volume(cerveja)}} \\ = \frac{\text{grav.esp.(\'alcool)}}{\text{grav.esp.(cerveja)}}\frac{\text{volume(\'alcool)}}{\text{volume(cerveja)}} = \frac{0,79}{\text{GFA}}\text{\text{ABV}}.\end{aligned}$</p>
+<p>7) Conteúdo calórico por volume, segundo a fórmula<br />
+$latex \text{Cal} = \displaystyle \text{GFA}*\frac{V}{10}\left(6.9*\text{ABW}\%+4.0*(\text{EFR}-0.1)\right)$,<br />
+onde V é o volume em litros, e.g. 0,3L=330ml, 0,5L=500ml, 1L, etc. O primeiro termo em parênteses leva ao total de calorias provenientes do álcool. O segundo termo leva ao total de calorias provenientes do extrato residual real restante na cerveja. Mais uma vez, essa fórmula é uma aproximação obtida empiricamente.</p>
+<p>Referências:</p>
+<ol>
+<li>Beer Data: Alcohol, Calorie, and Attenuation Levels of Beer, by Peter A. Ensminger, at <a href="http://hbd.org/ensmingr/">http://hbd.org/ensmingr/</a></li>
+<li>Brewing Techniques: Understanding Specific Gravity and Extract by Martin P. Manning, at <a href="http://brewingtechniques.com/library/backissues/issue1.3/manning.html">http://brewingtechniques.com/library/backissues/issue1.3/manning.html</a></li>
+<li>Malting and Brewing: Apparent Extract (EA) Calculation, at <a href="http://maltingandbrewing.com/apparent-extract-ea-calculation.html">http://maltingandbrewing.com/apparent-extract-ea-calculation.html</a></li>
+<li>Wikipedia: Gravity (alcoholic beverage), at <a href="http://en.wikipedia.org/wiki/Gravity_(alcoholic_beverage)">http://en.wikipedia.org/wiki/Gravity_(alcoholic_beverage)</a></li>
+</ol>
+</div></article><section class="comments" id="comments"><h2>6 comentários</h2><ol><li><div class="comment" id="comment-903"><div class="avatar" style="--h:51" aria-hidden="true">MC</div><div class="cbody"><div class="who">Marcelo Crósta <a class="when" href="#comment-903">18 de abril de 2012 às 11:45</a></div><p>Professor Ricardo,<br />
+primeiramente obrigado pela resposta à pergunta sobre o iodo, vamos colocar suas dicas em prática em nossa próxima receita... falando nela, temos uma nova dúvida, será que pode nos ajudar?<br />
+Como bons cervejeiros iniciantes, adquirimos alguns "quitutes" caipiras (mel, melaço e rapadura), tudo caseiro e de ótima qualidade, e pensamos: Comer ou fermentar?<br />
+FERMENTAR! então pensamos em utilizar nossa receita base de Pale Ale (é a única que sabemos, por enquanto) levemente modificada para conseguirmos um pouco mais de alcool e de corpo na cerveja, afinal, ela terá que "aguentar" toda essa carga de açucar.<br />
+Quais mais maltes e em quais concentrações podemos utilizar, em adição ao malte base Pale, para chegar em uma receita com mais encorpada?</p>
+<p>Grande abraço e muito obrigado!</p>
+</div></div><ol><li><div class="comment by-author" id="comment-904"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-904">18 de abril de 2012 às 12:04</a></div><p>Oi, Marcelo,</p>
+<p>Bacana, é sempre bom tentar ingredientes diferentes!</p>
+<p>Há várias opções para aumentar o corpo, dependendo do que você quer alcançar. Você pode colocar mais malte no total, e/ou um pouco de malte Munich, Vienna ou Melanoidina (uns 5-10%) e/ou um pouco de malte caramelo (uns 5%) e/ou, também, fazer a sacarificação a uma temperatura um pouco mais alta, tipo 67C. Sugiro que você olhe outras receitas na internet para ter inspiração. </p>
+<p>Um abraço e boa sorte,<br />
+Ricardo</p>
+</div></div></li><li><div class="comment" id="comment-23785"><div class="avatar" style="--h:142" aria-hidden="true">G</div><div class="cbody"><div class="who">Grasi <a class="when" href="#comment-23785">21 de junho de 2014 às 10:02</a></div><p>professor uma pergunta qual a diferença entre extrato aparente e extrato aparente final, e o que é extrato fermentescível?</p>
+</div></div><ol><li><div class="comment by-author" id="comment-23790"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-23790">24 de junho de 2014 às 10:19</a></div><p>Olá, De Grasi,</p>
+<p>O extrato aparente pode ser de qualquer momento durante o processo. O extrato aparente final se refere ao extrato aparente após o final da fermentação. Nunca li ou ouvi falar de extrato fermentescível, mas deve ser o extrato primitivo, também chamado de extrato original, que é o extrato antes do início da fermentação.</p>
+<p>Abs,<br />
+Ricardo</p>
+</div></div></li></ol></li></ol></li><li><div class="comment" id="comment-905"><div class="avatar" style="--h:51" aria-hidden="true">MC</div><div class="cbody"><div class="who">Marcelo Crósta <a class="when" href="#comment-905">18 de abril de 2012 às 12:17</a></div><p>Muito obrigado, professor!<br />
+Já esta marcada a data para os testes, dia 05/05.</p>
+<p>Abraços</p>
+</div></div></li><li><div class="comment" id="comment-4125"><div class="avatar" style="--h:336" aria-hidden="true">FM</div><div class="cbody"><div class="who"><a href="http://oficinaeoficio.com" rel="external nofollow ugc">Fernando MDB</a> <a class="when" href="#comment-4125">24 de outubro de 2012 às 20:10</a></div><p>Olá Ricardo,</p>
+<p>Uso um aplicativo para Android, o BrewzorPro, ele tem muitas calculdoras, gosto bastante. Pena que o desenvolvedor abandonou o aplicativo, eu compraria. Porém sempre lendo sobre fabricação, passo pelo teu blog. Essa tabela de cálculos é muito legal, ja´adicionei aos favoritos, vai me fornecer a informação das calorias aproximadas, além de me auxiliar conferindo outros cálculos. Obrigado pela disposição!</p>
+<p>Fernando</p>
+</div></div></li></ol><p class="closed">Os comentários estão encerrados — este é um arquivo somente leitura.</p></section></main><aside><section class="widget"><h3>Posts recentes</h3><ul><li><a href="/blog/2014/07/10/brewdog-hopinator/">Brewdog Hopinator</a></li><li><a href="/blog/2014/03/12/estripulias-do-felipe/">Estripulias do Felipe</a></li><li><a href="/blog/2012/09/24/peri-e-araci-saison-com-refresco-azedo-de-casca-de-abacaxi/">Peri e Araci: Saison com refresco azedo de casca de abacaxi</a></li><li><a href="/blog/2012/04/02/saison-de-ma-maison/">Saison de ma Maison</a></li><li><a href="/blog/2012/03/07/descobrindo-o-estilo-saison/">Descobrindo o estilo Saison</a></li><li><a href="/blog/2012/01/30/fornicale-bitter-sem-lavagem/">Fornicale Bitter, sem lavagem</a></li><li><a href="/blog/2011/12/15/brassagem-sem-lavagem-eficiencia-versus-qualidade/">Brassagem sem lavagem: eficiência versus qualidade?</a></li><li><a href="/blog/2011/10/20/o-que-ha-de-real-na-atenuacao/">O que há de real na atenuação?</a></li></ul></section><section class="widget"><h3>Categorias</h3><ul><li><a href="/blog/category/cerveja/">Cerveja</a> (39)<ul><li><a href="/blog/category/cerveja/levas/">Levas</a> (21)</li><li><a href="/blog/category/cerveja/tecnicas/">Técnicas</a> (17)</li></ul></li><li><a href="/blog/category/diversos/">Diversos</a> (2)</li><li><a href="/blog/category/viagem/">viagem</a> (4)</li></ul></section><section class="widget"><h3>Arquivos</h3><ul class="archives"><li><a href="/blog/2014/07/">Julho de 2014</a> (1)</li><li><a href="/blog/2014/03/">Março de 2014</a> (1)</li><li><a href="/blog/2012/09/">Setembro de 2012</a> (1)</li><li><a href="/blog/2012/04/">Abril de 2012</a> (1)</li><li><a href="/blog/2012/03/">Março de 2012</a> (1)</li><li><a href="/blog/2012/01/">Janeiro de 2012</a> (1)</li><li><a href="/blog/2011/12/">Dezembro de 2011</a> (1)</li><li><a href="/blog/2011/10/">Outubro de 2011</a> (1)</li><li><a href="/blog/2011/08/">Agosto de 2011</a> (1)</li><li><a href="/blog/2011/07/">Julho de 2011</a> (1)</li><li><a href="/blog/2011/04/">Abril de 2011</a> (1)</li><li><a href="/blog/2010/12/">Dezembro de 2010</a> (1)</li><li><a href="/blog/2010/11/">Novembro de 2010</a> (1)</li><li><a href="/blog/2010/08/">Agosto de 2010</a> (1)</li><li><a href="/blog/2010/07/">Julho de 2010</a> (1)</li><li><a href="/blog/2010/02/">Fevereiro de 2010</a> (1)</li><li><a href="/blog/2009/10/">Outubro de 2009</a> (1)</li><li><a href="/blog/2009/08/">Agosto de 2009</a> (1)</li><li><a href="/blog/2009/07/">Julho de 2009</a> (1)</li><li><a href="/blog/2009/05/">Maio de 2009</a> (1)</li><li><a href="/blog/2009/01/">Janeiro de 2009</a> (1)</li><li><a href="/blog/2008/11/">Novembro de 2008</a> (1)</li><li><a href="/blog/2008/09/">Setembro de 2008</a> (1)</li><li><a href="/blog/2008/08/">Agosto de 2008</a> (2)</li><li><a href="/blog/2008/07/">Julho de 2008</a> (1)</li><li><a href="/blog/2008/06/">Junho de 2008</a> (1)</li><li><a href="/blog/2008/05/">Maio de 2008</a> (1)</li><li><a href="/blog/2008/04/">Abril de 2008</a> (1)</li><li><a href="/blog/2007/12/">Dezembro de 2007</a> (2)</li><li><a href="/blog/2007/11/">Novembro de 2007</a> (1)</li><li><a href="/blog/2007/09/">Setembro de 2007</a> (1)</li><li><a href="/blog/2007/08/">Agosto de 2007</a> (1)</li><li><a href="/blog/2007/06/">Junho de 2007</a> (1)</li><li><a href="/blog/2007/05/">Maio de 2007</a> (1)</li><li><a href="/blog/2007/04/">Abril de 2007</a> (3)</li><li><a href="/blog/2007/03/">Março de 2007</a> (1)</li><li><a href="/blog/2007/02/">Fevereiro de 2007</a> (1)</li></ul></section></aside></div></div>
+<footer class="site"><div class="wrap"><p><strong>Blog Cervejarte (Ricardo Rosa)</strong> · Blog sobre produção artesanal de cerveja</p><p>Arquivo estático, somente leitura, dos posts de 2007 a 2014. Os comentários estão encerrados.</p></div></footer>
+</body></html>

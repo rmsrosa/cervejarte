@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gravidade específica e extrato | Blog Cervejarte (Ricardo Rosa)</title><link rel="canonical" href="https://cervejarte.org/blog/calcularte/gravidade-especifica-e-extrato/">
+<link rel="alternate" type="application/rss+xml" title="Blog Cervejarte (Ricardo Rosa)" href="/blog/feed.xml">
+<link rel="stylesheet" href="/blog/assets/style.css">
+<meta name="theme-color" content="#2a1a0e"></head>
+<body>
+<header class="site"><div class="brand"><a href="/blog/" title="Blog Cervejarte (Ricardo Rosa)"><img src="/blog/assets/cabecalho.png" width="1000" height="288" alt="Blog da Cervejarte — cerveja artesanal desde 2004 — Ricardo Rosa"></a></div>
+<nav class="menu"><div class="menu-inner"><a href="/blog/">Início</a><a href="/blog/album/">Album</a><a href="/blog/sobre/">Apresentação</a><a href="/blog/calcularte/">Calcularte</a><a href="/blog/competicoes/">Competições</a></div></nav></header>
+<div class="wrap"><div class="cols"><main><article id="post-414"><h1 class="entry">Gravidade específica e extrato</h1><div class="entry-content"><p>O formulário abaixo transforma gravidade específica em graus Plato e vice-versa.</p>
+<form action="#" id="gravityplatotransform">
+<div>
+<table border cellpadding=2 width="98%">
+<tr>
+<th align="left"> Gravidade específica</p>
+<td> <input type="text" name="ge" size="7" maxlength="7" value="1.094" onChange="plato.value=Math.round(100*(668.72*ge.value - 463.37 - 205.35*ge.value*ge.value))/100;">g.e.<br />
+   </tr>
+<tr>
+<th align="left"> Graus Plato</p>
+<td> <input type="text" name="plato" size="7" maxlength="7" value="22.43" onChange="ge.value=Math.round(1000*(668.72/410.7-Math.sqrt(Math.pow((668.72/410.7),2) - (1.0*plato.value+463.37)/205.35)))/1000;">P<br />
+   </tr>
+</table>
+<p> <br>
+ </div>
+</form>
+<p>Essas unidades são usadas para medir a quantidade de açúcares, dextrinas, proteínas e outras substâncias no mosto, ou, até mesmo, na cerveja, após a fermentação. </p>
+<p>O extrato de um mosto é uma medida, em graus Plato, da concentração (em massa) das diversas substâncias presentes no mosto. O mosto é uma solução, onde essas substâncias são o soluto e a água é o solvente. A concentração é a massa do soluto dividida pela massa da solução toda (soluto mais solvente).</p>
+<p>No caso da cerveja, isto é, após a fermentação do mosto, o extrato medido é chamado de <em>aparente</em>, porque a presença do álcool, que é bem mais leve que a água, deturpa a interpretação correta da massa do soluto. O extrato chamado de <em>real</em> é o extrato obtido para a solução caso o soluto estivesse diluído no mesmo volume em água. (Veja o artigo <a href="/blog/2011/10/20/o-que-ha-de-real-na-atenuacao/" title="O que há de real na atenuação?"></a> para saber mais detalhes sobre a diferença entre atenuação real e atenuação aparente.)</p>
+<p>Por definição, graus Plato é uma medida da concentração (em massa) de sacarose em uma solução de água e sacarose. Assim, 1 grau Plato significa que 1% da massa da solução é composta de sacarose e os 99% restante são a massa da água, com a massa total sendo 100%. Como no mosto há diversas outras substâncias que têm massas diferentes da sacarose, o resultado é apenas uma aproximação da concentração dessas substâncias no mosto. Analogamente para o extrato real da cerveja.</p>
+<p>O extrato é usualmente inferido através de um densímetro, onde o que se mede, indiretamente, é a densidade do mosto, ou da cerveja, relativo à densidade da água. Alguns densímetros vem com a escala em gravidade específica, enquanto que outros já vem com a escala em graus Plato.</p>
+<p>A relação entre a densidade do mosto ou da cerveja e a densidade da água é conhecida como gravidade específica. Assim, uma gravidade específica de 1.010 significa que a solução pesa 10/1000=1/100=1% mais do que o mesmo volume em água. Essa unidade depende da temperatura, porque a densidade da água e de soluções aquosas varia com a temperatura. Em geral, os densímetros estão calibrados para 20C (68F) ou para 15,56C (60F).</p>
+<p>Dada a complexidade da composição do mosto, não há uma relação precisa entre a concentração das substâncias dissolvidas nele e a sua densidade. Isso significa que não há uma relação precisa entre o extrato do mosto em graus Plato e a sua gravidade específica. Faz-se, no entanto, uma aproximação através da relação obtida para uma solução de sacarose. Nesse caso, se $latex SG$ indica a gravidade específica de uma solução de água e sacarose a 20C e $latex P$ indica o extrato dessa solução em graus Plato, então a seguinte fórmula quadrática dá uma aproximação para os dados obtidos experimentalmente:</p>
+<p>$latex P = 668.72*SG - 463.37 - 205.35*SG^2. \qquad (1)$</p>
+<p>Essa equação é da forma</p>
+<p>$latex P = b*SG - c - a*SG^2,$</p>
+<p>com </p>
+<p>$latex a=205.35, b=668.72, c=463.37.$</p>
+<p>Resolvendo para $latex SG$, temos duas raízes, mas a solução correta no intervalo típico de interesse (SG aproximadamente entre 1.000 e 1.200, por exemplo), é a menor delas, ou seja</p>
+<p>$latex SG = \displaystyle d - \sqrt{d^2 - \frac{(P+c)}{a}},$</p>
+<p>onde </p>
+<p>$latex d=\displaystyle \frac{b}{2a}.$</p>
+<p>Assim, podemos escrever </p>
+<p>$latex SG = \displaystyle \frac{668.72}{410.7} - \sqrt{\left(\frac{668.72}{410.7}\right)^2 - \frac{P+463.37}{205.35}}. \qquad (2)$</p>
+<p>O formulário acima implementa as transformações (1) e (2).</p>
+<p>Para uma aproximação rápida e que pode ser feita de cabeça, os milésimos da gravidade específica são aproximadamente iguais a quatro vezes o grau Plato. Os milésimos da gravidade específica são chamados de unidades de gravidade (ou pontos de gravidade) e são obtidos meramente subtraindo a gravidade específica de 1.000 e multiplicando o resultado por mil. Por exemplo, se a gravidade específica é $latex 1.008 \;g.e.,$ então isso dá </p>
+<p>$latex 1000*(1.008-1.000) = 8 \text{ pontos de gravidade,}$</p>
+<p>que equivalem a aproximadamente </p>
+<p>$latex \displaystyle \frac{8}{4} = 2 \text{ graus Plato}.$</p>
+<p>Ou, se o grau Plato é $latex 12P,$ então isso equivale aproximadamente a</p>
+<p>$latex 12*4=48 \text{ pontos de gravidade},$</p>
+<p>que dão</p>
+<p>$latex \displaystyle 1 + \frac{48}{1000} = 1.048g.e.$</p>
+<p>Essa aproximação é muito boa até aproximadamente uns 13 graus Plato. Depois disso, é necessário uma pequena correção, com os pontos de gravidade sendo um pouco maiores que quatro vezes o grau Plato.</p>
+<p>Para concluir, vamos ser um pouco mais explícitos nas definições de extrato e gravidade específica, para evitar confusões. Se uma solução é composta de um soluto $latex S$ e um solvente $latex W$, então o extrato em graus Plato é dado por</p>
+<p>$latex \displaystyle E = \frac{m(S)}{m(S)+m(W)},$</p>
+<p>onde $latex m(S)$ indica a massa do soluto e $latex m(W)$, a massa do solvente. A massa total da solução é $latex m(S\cup W) = m(S)+m(W)$. Vamos denotar também por $latex v(W)$ e $latex v(S\cup W)$ o volume da quantidade $latex W$ de água e o volume da solução, respectivamente. Observe que, em geral, não é verdade que $latex v(S\cup W)=v(S)+v(W)$.</p>
+<p>Por sua vez, a gravidade específica da solução é dada por</p>
+<p>$latex \displaystyle \gamma = \frac{\rho(S\cup W)}{\rho(W)},$</p>
+<p>onde </p>
+<p>$latex \displaystyle \rho(S\cup W) = \frac{m(S\cup W)}{v(S\cup W)} = \frac{m(S)+m(W)}{v(S\cup W)}$</p>
+<p>é a densidade da solução e </p>
+<p>$latex \displaystyle \rho(W) = \frac{m(W)}{v(W)}$</p>
+<p>é a densidade da água.</p>
+<p>Referências:</p>
+<ol>
+<li>Brewing Techniques: Understanding Specific Gravity and Extract by Martin P. Manning, at <a href="http://brewingtechniques.com/library/backissues/issue1.3/manning.html">http://brewingtechniques.com/library/backissues/issue1.3/manning.html</a></li>
+<li>Beer Data: Alcohol, Calorie, and Attenuation Levels of Beer, by Peter A. Ensminger, at <a href="http://hbd.org/ensmingr/">http://hbd.org/ensmingr/</a></li>
+<li>Malting and Brewing: Apparent Extract (EA) Calculation, at <a href="http://maltingandbrewing.com/apparent-extract-ea-calculation.html">http://maltingandbrewing.com/apparent-extract-ea-calculation.html</a></li>
+<li>Wikipedia: Gravity (alcoholic beverage), at <a href="http://en.wikipedia.org/wiki/Gravity_(alcoholic_beverage)">http://en.wikipedia.org/wiki/Gravity_(alcoholic_beverage)</a></li>
+</ol>
+</div></article><section class="comments" id="comments"><h2>27 comentários</h2><ol><li><div class="comment" id="comment-439"><div class="avatar" style="--h:264" aria-hidden="true">SC</div><div class="cbody"><div class="who">sharbo casagrande <a class="when" href="#comment-439">11 de janeiro de 2012 às 10:34</a></div><p>ola ricardo,</p>
+<p>gostaria de compartilhar minha enorme admiraçao por vc, pela sua didatica e pelo seu conhecimento,  e nos brindar com seu blog!!! obrigado!<br />
+aqui em Curitiba todos te elogiam muito!!!</p>
+<p>preciso de uma ajuda sua, estou querendo comprar um refratometro, e tenho me deparado com muitas opçoes e dificuldade de saber qual é o melhor e onde comprar!!!!<br />
+poderia me dar umas dicas!!!! </p>
+<p>obrigado e grande abraço</p>
+</div></div><ol><li><div class="comment by-author" id="comment-454"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-454">23 de janeiro de 2012 às 14:39</a></div><p>Olá, Casagrande,</p>
+<p>Eu comprei no exterior, mas sei que é possível comprar aqui com preço razoável. Veja na Bodebrown aí em Curitiba, eles devem ter ou saber indicar melhor do que eu. O ideal é um com correção de temperatura e com escala de 0 a uns 25 Brix. </p>
+<p>Abs,<br />
+Ricardo</p>
+</div></div></li></ol></li><li><div class="comment" id="comment-1329"><div class="avatar" style="--h:141" aria-hidden="true">H</div><div class="cbody"><div class="who">HÉLIO <a class="when" href="#comment-1329">27 de maio de 2012 às 10:01</a></div><p>Ricardo, seus textos são excepcionais....parabéns...ajuda muito os cervejeiros iniciais....sou do sul de Minas e aprendendo a cada leitura e a cada brassagem, um pouco mais dessa arte que vc, oportunamente, denomina CERVEJARTE....gde abraço.<br />
+Hélio.</p>
+</div></div><ol><li><div class="comment by-author" id="comment-1450"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-1450">1 de junho de 2012 às 11:43</a></div><p>Olá, Hélio,</p>
+<p>Muito obrigado pelas palavras e pelo apoio! Isso é uma motivação a mais para eu continuar escrevendo.</p>
+<p>Grande abraço,<br />
+Ricardo</p>
+</div></div></li></ol></li><li><div class="comment" id="comment-21264"><div class="avatar" style="--h:83" aria-hidden="true">TD</div><div class="cbody"><div class="who">Tom Delirium <a class="when" href="#comment-21264">26 de maio de 2013 às 22:06</a></div><p>Parabéns Ricardo! Excelente trabalho sempre. Um forte abraço!</p>
+</div></div><ol><li><div class="comment by-author" id="comment-21265"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-21265">26 de maio de 2013 às 22:19</a></div><p>Obrigado, Tom!</p>
+<p>Grande abraço para você também!!!</p>
+</div></div></li></ol></li><li><div class="comment" id="comment-23643"><div class="avatar" style="--h:244" aria-hidden="true">G</div><div class="cbody"><div class="who">Gilmar <a class="when" href="#comment-23643">5 de dezembro de 2013 às 15:09</a></div><p>Muito bom mesmo,<br />
+Preciso de um auxilio,<br />
+Minhas cervejas tem uma ótima aparência, coloração, espuma, transparência em fim tudo ok, a densidade original fica em torno de 1050 a 1066 em todas as passagens porem a densidade final fica sempre em 1040, não consigo converter mais açucares em álcool, hoje mesmo fui medir uma leva que estava fermentando a 10 dias, liberando co2 direto só parou hoje o resultado da densidade é de 1039, ainda não fiz a transferência para o maturador pois queria produzir mais alcool aja visto que tinha açúcar suficiente pois a Dens. Original foi de 1060.<br />
+Onde posso estar errando? para esta leva ainda tem como produzir mais álcool?<br />
+se alguem puder me ajudar agradeço.<br />
+Att,<br />
+Gilmar</p>
+</div></div><ol><li><div class="comment by-author" id="comment-23644"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-23644">5 de dezembro de 2013 às 15:59</a></div><p>Olá, Gilmar,</p>
+<p>Como você está medindo a gravidade final? Está usando o refratômetro? Caso positivo, é necessário usar uma fórmula de correção, porque a presença do álcool altera a refração. Os programas de computador para elaboração de receita costumam ter uma calculadora de correção. Há várias calculadoras disponíveis em sites na internet. Veja, por exemplo, o <a href="http://www.northernbrewer.com/refractometer-calculator/" rel="nofollow ugc">Refractometer Calculator da Northern Brewer</a>.</p>
+<p>Como está o sabor da cerveja? Se não está doce, é porque fermentou direito e é só problema de cálculo.</p>
+<p>Abs,<br />
+Ricardo</p>
+</div></div><ol><li><div class="comment" id="comment-23645"><div class="avatar" style="--h:244" aria-hidden="true">G</div><div class="cbody"><div class="who">Gilmar <a class="when" href="#comment-23645">5 de dezembro de 2013 às 16:20</a></div><p>Olá Ricardo,<br />
+Sim, estou usando o refratometro, o calculo que faço é: GO - GF x 131, Quanto ao gosto esta ficando bom, um pouco amarga, até ja estou reduzindo o Lupulo para melhorar,</p>
+</div></div><ol><li><div class="comment by-author" id="comment-23646"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-23646">5 de dezembro de 2013 às 16:38</a></div><p>Pois é, essa é a questão. Essa fórmula é uma boa aproximação para o teor alcoólico, mas você precisa saber a gravidade final GF corrigida. A leitura que o refratômetro te dá não é a GF. Veja o link que eu passei. Você precisa saber o Brix Original e o Brix Final medido no refratômetro, para ter a Gravidade Final corrigida.</p>
+</div></div><ol><li><div class="comment" id="comment-23648"><div class="avatar" style="--h:244" aria-hidden="true">G</div><div class="cbody"><div class="who">Gilmar <a class="when" href="#comment-23648">5 de dezembro de 2013 às 17:09</a></div><p>Ricardo,<br />
+deixa eu ver se entendi,<br />
+coloquei o valor em Brix original e final o resultado foi gravidade de 1026, este valor que vou jogar na formula? ex:<br />
+GO 1060 - GF 1026 x131= 4,45 % de alcool.</p>
+</div></div><ol><li><div class="comment by-author" id="comment-23649"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-23649">5 de dezembro de 2013 às 17:48</a></div><p>É exatamente isso!</p>
+</div></div></li></ol></li></ol></li></ol></li><li><div class="comment" id="comment-23899"><div class="avatar" style="--h:153" aria-hidden="true">P</div><div class="cbody"><div class="who">Paulo <a class="when" href="#comment-23899">2 de maio de 2015 às 09:09</a></div><p>Salvou minha vida!! estava quebrando minha cabeça com isso tbm, grande abraço!</p>
+</div></div></li></ol></li></ol></li><li><div class="comment" id="comment-23650"><div class="avatar" style="--h:244" aria-hidden="true">G</div><div class="cbody"><div class="who">Gilmar <a class="when" href="#comment-23650">5 de dezembro de 2013 às 18:18</a></div><p>Valeu Ricardo,<br />
+Muito obrigado pela ajuda, nesse caso esta ficando com um teor acólico muito bom..<br />
+Valeu mesmo.<br />
+Att,<br />
+Gilmar</p>
+</div></div></li><li><div class="comment" id="comment-23735"><div class="avatar" style="--h:24" aria-hidden="true">A</div><div class="cbody"><div class="who"><a href="http://www.rgsurf.com.br" rel="external nofollow ugc">Augusto</a> <a class="when" href="#comment-23735">6 de fevereiro de 2014 às 13:59</a></div><p>Olá Ricardo, fiz minha primeira brassagem semana passada, mas não tínhamos densímetro para tirar a OG. Há alguma forma de estimar o teor alcoólico final da cerveja apenas com a FG? Terei que aceitar que o teor alcoólico será um eterno mistério?<br />
+Já adquirimos o densímetro e não nos falta mais nenhum instrumento para as próximas.<br />
+Desde já obrigado pelas informações disponíveis no blog.<br />
+Abraços, Augusto</p>
+</div></div><ol><li><div class="comment by-author" id="comment-23737"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-23737">7 de fevereiro de 2014 às 09:13</a></div><p>Olá, Augusto,</p>
+<p>Se você tiver um refratômetro, você pode usá-lo junto com o densímetro para ter uma estimativa do teor alcoólico. O refratômetro é normalmente usado no lugar do densimetro para estimar a densidade do mosto e da cerveja, mas a medida dada pelo refratômetro da densidade final da cerveja contém um desvio por conta do álcool e esse desvio precisa ser corrigido. Há fórmulas para isso. Esse mesmo desvio pode ser usado para estimar a quantidade de álcool. Nos softwares de cerveja (BeerSmith, BeerTools Pro, etc.) e na internet você acha as calculadoras para deduzir o álcool e a densidade final a partir da densidade original e da medida final do refratômetro. Você pode usar essas calculadoras e fazer um processo inverso, usando a medida da densidade final dada pelo densimetro e chutando a medida da densidade original até acertar os valores. Espero que eu tenha sido claro. </p>
+<p>Um abraço,<br />
+Ricardo</p>
+</div></div><ol><li><div class="comment" id="comment-23740"><div class="avatar" style="--h:24" aria-hidden="true">A</div><div class="cbody"><div class="who"><a href="http://www.rgsurf.com.br" rel="external nofollow ugc">Augusto</a> <a class="when" href="#comment-23740">7 de fevereiro de 2014 às 17:02</a></div><p>Obrigado Ricardo, vou tentar fazer isso.</p>
+</div></div></li></ol></li></ol></li><li><div class="comment" id="comment-23809"><div class="avatar" style="--h:329" aria-hidden="true">LF</div><div class="cbody"><div class="who">Luiz Felipe <a class="when" href="#comment-23809">5 de agosto de 2014 às 15:42</a></div><p>Ola Ricardo,<br />
+Sou novo no ramo de cervejas artesanais e algumas duvidas caminham junto com meu progresso. Gostaria, se possivel, que me ajudasse no seguinte. Minha cerveja apresenta densidade inicial de 1040 ou 1045. Acho excelente quando atinjo essa medida. Porem quando ela varia para mais ou menos o sabor final altera um pouco. Como consigo corrigir esses valores antes dela iniciar a fermentação. É possivel? Ouvi dizer para acrescentar agua ou açucar. E verdade? e se for qual a quantidade? Normalmente faço levas de 60 litros. Obrigado pela atenção.</p>
+</div></div><ol><li><div class="comment by-author" id="comment-23810"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-23810">5 de agosto de 2014 às 15:56</a></div><p>Olá, Luiz Felipe,</p>
+<p>O mais indicado para obter um extrato inicial mais preciso é você monitorar a densidade antes da fervura. Observe, nas próximas vezes, qual a densiade pré-fervura que te dá o extrato inicial (após a fervura) desejado. Uma vez que tenha identificado isso, monitore, nas vezes seguintes, a densidade pré-fervura e pare de lavar ou lave mais, até alcançar a densidade necessário.</p>
+<p>Um abraço,<br />
+Ricardo</p>
+</div></div></li></ol></li><li><div class="comment" id="comment-23983"><div class="avatar" style="--h:356" aria-hidden="true">MR</div><div class="cbody"><div class="who"><a href="http://mrabeloconsultoria.wordpress.com" rel="external nofollow ugc">Marianna Rabelo</a> <a class="when" href="#comment-23983">7 de julho de 2015 às 15:17</a></div><p>Olá Ricardo,<br />
+Sou estudante de Engenharia de Alimentos e atualmente faço intercâmbio na Hungria e tenho estudado tecnologia de cerveja este último ano. Venho acompanhando seu blog a um tempo e acho válido dizer que seu site é muito informativo e também correto, você tem orientado e dado excelentes dicas para o pessoal. Tudo que vc diz condiz com o que eu tenho estudado por aqui, onde seguimos ao máximo a legislação alemã para fabricação de cervejas. Infelizmente é muito comum encontrarmos sites com muita informação má interpretada.. e por isso fiquei muito feliz de encontrar seu site!! Continue esse trabalho bacana!! Espero poder te acompanhar e aprender mais com vc tbm. Abraços</p>
+</div></div><ol><li><div class="comment by-author" id="comment-23984"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-23984">7 de julho de 2015 às 16:10</a></div><p>Olá, Marianna,</p>
+<p>Que bom, obrigado pelas palavras! São um grande incentivo. Quando voltar do intercâmbio, entre em contato. Sucesso por aí! </p>
+<p>Um abraço,<br />
+Ricardo</p>
+</div></div></li></ol></li><li><div class="comment" id="comment-24002"><div class="avatar" style="--h:141" aria-hidden="true">MB</div><div class="cbody"><div class="who">Messias Baptista <a class="when" href="#comment-24002">11 de agosto de 2015 às 02:49</a></div><p>Ola, Ricardo!</p>
+<p>Sou Químico Industrial, porém trabalho na indústria petrolífera e estou começando no ramo da fabricação de cerveja artesanal. Este blog tem me ajudado bastante. Gostaria de manter o contato com vocês e aprender mais, pois estou escrevendo meu projeto de fabricação e investindo nos equipamentos e já irei começar minha primeira Batelada agora em setembro. Estava com  dúvida quanto a algumas unidades, por exemplo, GRAUS PLATO e o blog ajudou bastante. Parabéns e continue com seu trabalho!!!</p>
+<p>Obrigado pela ajuda!</p>
+</div></div><ol><li><div class="comment by-author" id="comment-24004"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-24004">11 de agosto de 2015 às 09:32</a></div><p>Olá, Messias,</p>
+<p>Fico feliz em saber que os artigos são de ajuda! Sucesso nas suas bateladas!</p>
+<p>Um abraço,<br />
+Ricardo</p>
+</div></div></li></ol></li><li><div class="comment" id="comment-24034"><div class="avatar" style="--h:350" aria-hidden="true">D</div><div class="cbody"><div class="who">Daniely <a class="when" href="#comment-24034">5 de novembro de 2015 às 18:37</a></div><p>Vc sabe me dizer uma fórmula que possa usar para estimar o %Teor alcoólico através do ºBrix ( para cerveja) , sei que tem uma relação % Teor Alc.= [ ºBrix ( inc.) - ºBrix (Fin.) ] x0,45<br />
+vc usaria ela ou teria uma referencia a me indicar?? Obrigada</p>
+</div></div><ol><li><div class="comment by-author" id="comment-24041"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-24041">11 de novembro de 2015 às 10:43</a></div><p>Olá, Daniely,</p>
+<p>Veja a página <a href="/blog/calcularte/atenuacao-e-outras-variaveis-da-fermentacao/" rel="nofollow ugc">http://cervejarte.org/blog/calcularte/atenuacao-e-outras-variaveis-da-fermentacao/</a> onde descrevo em detalhes uma fórmula mais precisa.</p>
+<p>Um abraço,<br />
+Ricardo</p>
+</div></div></li></ol></li><li><div class="comment" id="comment-24165"><div class="avatar" style="--h:301" aria-hidden="true">CS</div><div class="cbody"><div class="who">Chinnon Santos <a class="when" href="#comment-24165">7 de julho de 2017 às 17:11</a></div><p>Você possui a formula de Extrato (P) e Gravidade Especifica (SG) com a variável de Temperatura (Graus Celsius)? Evidentemente essas tabelas de calculo deste artigo é com base na temperatura padrão de 20ºC, é para temperatura mais altas ou até mesmo mais baixas?</p>
+</div></div><ol><li><div class="comment by-author" id="comment-24174"><div class="avatar" style="--h:65" aria-hidden="true">RR</div><div class="cbody"><div class="who">Ricardo Rosa <a class="when" href="#comment-24174">25 de setembro de 2017 às 16:19</a></div><p>Sim, essa fórmula é para 20C. Não tenho a tabela para outras temperaturas. Estava implementando uma fórmula levando em consideração a temperatura, mas não cheguei a terminar. Mas não é difícil achar essa tabela pelo google.</p>
+</div></div></li></ol></li></ol><p class="closed">Os comentários estão encerrados — este é um arquivo somente leitura.</p></section></main><aside><section class="widget"><h3>Posts recentes</h3><ul><li><a href="/blog/2014/07/10/brewdog-hopinator/">Brewdog Hopinator</a></li><li><a href="/blog/2014/03/12/estripulias-do-felipe/">Estripulias do Felipe</a></li><li><a href="/blog/2012/09/24/peri-e-araci-saison-com-refresco-azedo-de-casca-de-abacaxi/">Peri e Araci: Saison com refresco azedo de casca de abacaxi</a></li><li><a href="/blog/2012/04/02/saison-de-ma-maison/">Saison de ma Maison</a></li><li><a href="/blog/2012/03/07/descobrindo-o-estilo-saison/">Descobrindo o estilo Saison</a></li><li><a href="/blog/2012/01/30/fornicale-bitter-sem-lavagem/">Fornicale Bitter, sem lavagem</a></li><li><a href="/blog/2011/12/15/brassagem-sem-lavagem-eficiencia-versus-qualidade/">Brassagem sem lavagem: eficiência versus qualidade?</a></li><li><a href="/blog/2011/10/20/o-que-ha-de-real-na-atenuacao/">O que há de real na atenuação?</a></li></ul></section><section class="widget"><h3>Categorias</h3><ul><li><a href="/blog/category/cerveja/">Cerveja</a> (39)<ul><li><a href="/blog/category/cerveja/levas/">Levas</a> (21)</li><li><a href="/blog/category/cerveja/tecnicas/">Técnicas</a> (17)</li></ul></li><li><a href="/blog/category/diversos/">Diversos</a> (2)</li><li><a href="/blog/category/viagem/">viagem</a> (4)</li></ul></section><section class="widget"><h3>Arquivos</h3><ul class="archives"><li><a href="/blog/2014/07/">Julho de 2014</a> (1)</li><li><a href="/blog/2014/03/">Março de 2014</a> (1)</li><li><a href="/blog/2012/09/">Setembro de 2012</a> (1)</li><li><a href="/blog/2012/04/">Abril de 2012</a> (1)</li><li><a href="/blog/2012/03/">Março de 2012</a> (1)</li><li><a href="/blog/2012/01/">Janeiro de 2012</a> (1)</li><li><a href="/blog/2011/12/">Dezembro de 2011</a> (1)</li><li><a href="/blog/2011/10/">Outubro de 2011</a> (1)</li><li><a href="/blog/2011/08/">Agosto de 2011</a> (1)</li><li><a href="/blog/2011/07/">Julho de 2011</a> (1)</li><li><a href="/blog/2011/04/">Abril de 2011</a> (1)</li><li><a href="/blog/2010/12/">Dezembro de 2010</a> (1)</li><li><a href="/blog/2010/11/">Novembro de 2010</a> (1)</li><li><a href="/blog/2010/08/">Agosto de 2010</a> (1)</li><li><a href="/blog/2010/07/">Julho de 2010</a> (1)</li><li><a href="/blog/2010/02/">Fevereiro de 2010</a> (1)</li><li><a href="/blog/2009/10/">Outubro de 2009</a> (1)</li><li><a href="/blog/2009/08/">Agosto de 2009</a> (1)</li><li><a href="/blog/2009/07/">Julho de 2009</a> (1)</li><li><a href="/blog/2009/05/">Maio de 2009</a> (1)</li><li><a href="/blog/2009/01/">Janeiro de 2009</a> (1)</li><li><a href="/blog/2008/11/">Novembro de 2008</a> (1)</li><li><a href="/blog/2008/09/">Setembro de 2008</a> (1)</li><li><a href="/blog/2008/08/">Agosto de 2008</a> (2)</li><li><a href="/blog/2008/07/">Julho de 2008</a> (1)</li><li><a href="/blog/2008/06/">Junho de 2008</a> (1)</li><li><a href="/blog/2008/05/">Maio de 2008</a> (1)</li><li><a href="/blog/2008/04/">Abril de 2008</a> (1)</li><li><a href="/blog/2007/12/">Dezembro de 2007</a> (2)</li><li><a href="/blog/2007/11/">Novembro de 2007</a> (1)</li><li><a href="/blog/2007/09/">Setembro de 2007</a> (1)</li><li><a href="/blog/2007/08/">Agosto de 2007</a> (1)</li><li><a href="/blog/2007/06/">Junho de 2007</a> (1)</li><li><a href="/blog/2007/05/">Maio de 2007</a> (1)</li><li><a href="/blog/2007/04/">Abril de 2007</a> (3)</li><li><a href="/blog/2007/03/">Março de 2007</a> (1)</li><li><a href="/blog/2007/02/">Fevereiro de 2007</a> (1)</li></ul></section></aside></div></div>
+<footer class="site"><div class="wrap"><p><strong>Blog Cervejarte (Ricardo Rosa)</strong> · Blog sobre produção artesanal de cerveja</p><p>Arquivo estático, somente leitura, dos posts de 2007 a 2014. Os comentários estão encerrados.</p></div></footer>
+</body></html>
