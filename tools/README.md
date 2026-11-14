@@ -70,4 +70,8 @@ being overwritten.
 - The look lives in `tools/style.css` and `tools/menu.js` (copied to
   `blog/assets/`, linked with a `?v=` content hash so browsers pick up changes).
   The original 2011 header image is copied to `blog/assets/cabecalho.png`.
+- New posts (written after the WordPress era) live in `tools/posts/`, one `.txt`
+  file each: header lines (`title:`, `date: YYYY-MM-DD HH:MM`, `slug:`,
+  `categories:` with existing category names), a line with `---`, then the text.
+  Blank lines separate paragraphs; simple HTML is allowed. Rebuild to publish.
 - `SITE_HOST` and `BASE` at the top of `build_site.py` set the domain and the path.

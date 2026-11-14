@@ -1,0 +1,9 @@
+title: Preservando a história
+date: 2026-11-14 12:00
+slug: preservando-a-historia
+categories: Diversos
+---
+A página Calcularte, com a calculadora online e algumas informações, estreou acho que em 2006. O blog Cervejarte teve início em 2007 e esteve ativo até o último post, em 2014. Mesmo sem novos posts, as páginas estiveram no ar até por volta do ano 2020. Nesses anos, tenho orgulho em saber que os meus textos ajudaram e inspiraram vários cervejeiros espalhados pelo Brasil. Fiz muitas cervejas e muitos amigos. Agora estou republicando as páginas em formato estático para preservar essa história e recuperar os links dos posts que ainda podem servir de referência. Obrigado a todos pelo carinho e pela participação ao longo dos anos. Saúde!
+
+Rio de Janeiro, 14 de novembro de 2026
+Ricardo Rosa
