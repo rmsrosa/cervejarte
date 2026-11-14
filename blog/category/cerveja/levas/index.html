@@ -178,34 +178,39 @@
 <a href="/blog/2009/08/29/injustus-revisitando-o-metodo-de-decoccao/attachment/264/"><img class="alignnone size-medium wp-image-264" title="" src="/blog/wp-content/uploads/2009/08/DSC05595.jpg" alt="" width="450" height="337" /></a><br />
 <a href="/blog/2009/08/29/injustus-revisitando-o-metodo-de-decoccao/galera-concentrada/"><img class="alignnone size-medium wp-image-263" title="Galera concentrada" src="/blog/wp-content/uploads/2009/08/DSC055931.jpg" alt="Galera concentrada" width="450" height="337" /></a></p>
 <p>Para completar, incluo abaixo uma calculadora para achar o volume de mosto da decocção necessário para uma determinada mudança de patamar de temperatura. Para maiores detalhes sobre isso e, em particular, sobre o parâmetro de ajuste da decocção e o volume específico dos grãos, vejam o texto da apostila.</p>
-<form id="decoctioncalculation" action="#">
+<form action="#" id="decoctioncalculation">
 <div>
-<table border="" width="98%" cellpadding="2">
-<tbody>
+<table border cellpadding=2 width="98%">
 <tr>
-<th align="left">Quantidade de grãos para a mosturação</p>
-<p><input maxlength="7" name="malte" size="7" type="text" value="8" />Kg</th>
-<th align="left">Volume de água para a mosturação</p>
-<p><input maxlength="7" name="volumedeagua" size="7" type="text" value="20" />L</th>
-<th align="left">Volume específico parcial dos grãos</p>
-<p><input maxlength="7" name="volumeespecifico" size="7" type="text" value="0.75" />L/Kg</th>
-<th align="left">Volume total do mosto (principal + decocção)</p>
-<p><input maxlength="7" name="volumetotal" size="7" type="text" value="26" />L</th>
-<th align="left">Temperatura atual do mosto</p>
-<p><input maxlength="7" name="temperaturainicial" size="7" type="text" value="52" />C</th>
-<th align="left">Volume da decocção</p>
-<p><input maxlength="7" name="volumedecoccao" size="7" type="text" value="11" />L</th>
-<th align="left">Temperatura (ebulição) da decocção</p>
-<p><input maxlength="7" name="temperaturadecoccao" size="7" type="text" value="100" />L</th>
-<th align="left">Parâmetro de ajuste</p>
-<p><input maxlength="7" name="parametro" size="7" type="text" value="0.85" /></th>
-<th align="left">Temperatura final</p>
-<p><input maxlength="7" name="temperaturafinal" size="7" type="text" value="66" />C</th>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-</div>
+<th align="left"> Quantidade de grãos para a mosturação</p>
+<td> <input type="text" name="malte" size="7" maxlength="7" value="8" onChange="volumetotal.value=Math.round(10*(volumeespecifico.value*malte.value+1*volumedeagua.value))/10;temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">Kg</p>
+<tr>
+<th align="left"> Volume de água para a mosturação</p>
+<td> <input type="text" name="volumedeagua" size="7" maxlength="7" value="20" onChange="volumetotal.value=Math.round(10*(volumeespecifico.value*malte.value+1*volumedeagua.value))/10;temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">L</p>
+<tr>
+<th align="left"> Volume específico parcial dos grãos</p>
+<td> <input type="text" name="volumeespecifico" size="7" maxlength="7" value="0.75" onChange="volumetotal.value=Math.round(10*(volumeespecifico.value*malte.value+1*volumedeagua.value))/10;temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">L/Kg</p>
+<tr>
+<th align="left"> Volume total do mosto (principal + decocção)</p>
+<td> <input type="text" name="volumetotal" size="7" maxlength="7" value="26" onChange="volumedeagua.value=Math.round(10*(1*volumetotal.value-volumeespecifico.value*malte.value))/10;temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">L</p>
+<tr>
+<th align="left"> Temperatura atual do mosto</p>
+<td> <input type="text" name="temperaturainicial" size="7" maxlength="7" value="52" onChange="temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">C</p>
+<tr>
+<th align="left"> Volume da decocção</p>
+<td> <input type="text" name="volumedecoccao" size="7" maxlength="7" value="11" onChange="temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">L</p>
+<tr>
+<th align="left"> Temperatura (ebulição) da decocção</p>
+<td> <input type="text" name="temperaturadecoccao" size="7" maxlength="7" value="100" onChange="temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">C</p>
+<tr>
+<th align="left"> Parâmetro de ajuste</p>
+<td> <input type="text" name="parametro" size="7" maxlength="7" value="0.85" onChange="temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;"></p>
+<tr>
+<th align="left"> Temperatura final</p>
+<td> <input type="text" name="temperaturafinal" size="7" maxlength="7" value="66" onChange="volumedecoccao.value=Math.round(10*volumetotal.value*((temperaturafinal.value-temperaturainicial.value)/(parametro.value*temperaturadecoccao.value-temperaturainicial.value)))/10;">C<br />
+  </table>
+<p> <br>
+ </div>
 </form>
 </div></article><nav class="pager"><a href="/blog/category/cerveja/levas/page/2/">← Posts mais antigos</a></nav></main><aside><section class="widget"><h3>Posts recentes</h3><ul><li><a href="/blog/2014/07/10/brewdog-hopinator/">Brewdog Hopinator</a></li><li><a href="/blog/2014/03/12/estripulias-do-felipe/">Estripulias do Felipe</a></li><li><a href="/blog/2012/09/24/peri-e-araci-saison-com-refresco-azedo-de-casca-de-abacaxi/">Peri e Araci: Saison com refresco azedo de casca de abacaxi</a></li><li><a href="/blog/2012/04/02/saison-de-ma-maison/">Saison de ma Maison</a></li><li><a href="/blog/2012/03/07/descobrindo-o-estilo-saison/">Descobrindo o estilo Saison</a></li><li><a href="/blog/2012/01/30/fornicale-bitter-sem-lavagem/">Fornicale Bitter, sem lavagem</a></li><li><a href="/blog/2011/12/15/brassagem-sem-lavagem-eficiencia-versus-qualidade/">Brassagem sem lavagem: eficiência versus qualidade?</a></li><li><a href="/blog/2011/10/20/o-que-ha-de-real-na-atenuacao/">O que há de real na atenuação?</a></li></ul></section><section class="widget"><h3>Categorias</h3><ul><li><a href="/blog/category/cerveja/">Cerveja</a> (39)<ul><li><a href="/blog/category/cerveja/levas/">Levas</a> (21)</li><li><a href="/blog/category/cerveja/tecnicas/">Técnicas</a> (17)</li></ul></li><li><a href="/blog/category/diversos/">Diversos</a> (2)</li><li><a href="/blog/category/viagem/">viagem</a> (4)</li></ul></section><section class="widget"><h3>Arquivos</h3><ul class="archives"><li><a href="/blog/2014/07/">Julho de 2014</a> (1)</li><li><a href="/blog/2014/03/">Março de 2014</a> (1)</li><li><a href="/blog/2012/09/">Setembro de 2012</a> (1)</li><li><a href="/blog/2012/04/">Abril de 2012</a> (1)</li><li><a href="/blog/2012/03/">Março de 2012</a> (1)</li><li><a href="/blog/2012/01/">Janeiro de 2012</a> (1)</li><li><a href="/blog/2011/12/">Dezembro de 2011</a> (1)</li><li><a href="/blog/2011/10/">Outubro de 2011</a> (1)</li><li><a href="/blog/2011/08/">Agosto de 2011</a> (1)</li><li><a href="/blog/2011/07/">Julho de 2011</a> (1)</li><li><a href="/blog/2011/04/">Abril de 2011</a> (1)</li><li><a href="/blog/2010/12/">Dezembro de 2010</a> (1)</li><li><a href="/blog/2010/11/">Novembro de 2010</a> (1)</li><li><a href="/blog/2010/08/">Agosto de 2010</a> (1)</li><li><a href="/blog/2010/07/">Julho de 2010</a> (1)</li><li><a href="/blog/2010/02/">Fevereiro de 2010</a> (1)</li><li><a href="/blog/2009/10/">Outubro de 2009</a> (1)</li><li><a href="/blog/2009/08/">Agosto de 2009</a> (1)</li><li><a href="/blog/2009/07/">Julho de 2009</a> (1)</li><li><a href="/blog/2009/05/">Maio de 2009</a> (1)</li><li><a href="/blog/2009/01/">Janeiro de 2009</a> (1)</li><li><a href="/blog/2008/11/">Novembro de 2008</a> (1)</li><li><a href="/blog/2008/09/">Setembro de 2008</a> (1)</li><li><a href="/blog/2008/08/">Agosto de 2008</a> (2)</li><li><a href="/blog/2008/07/">Julho de 2008</a> (1)</li><li><a href="/blog/2008/06/">Junho de 2008</a> (1)</li><li><a href="/blog/2008/05/">Maio de 2008</a> (1)</li><li><a href="/blog/2008/04/">Abril de 2008</a> (1)</li><li><a href="/blog/2007/12/">Dezembro de 2007</a> (2)</li><li><a href="/blog/2007/11/">Novembro de 2007</a> (1)</li><li><a href="/blog/2007/09/">Setembro de 2007</a> (1)</li><li><a href="/blog/2007/08/">Agosto de 2007</a> (1)</li><li><a href="/blog/2007/06/">Junho de 2007</a> (1)</li><li><a href="/blog/2007/05/">Maio de 2007</a> (1)</li><li><a href="/blog/2007/04/">Abril de 2007</a> (3)</li><li><a href="/blog/2007/03/">Março de 2007</a> (1)</li><li><a href="/blog/2007/02/">Fevereiro de 2007</a> (1)</li></ul></section></aside></div></div>
 <script src="/blog/assets/menu.js?v=9e2da22c" defer></script>

@@ -156,34 +156,39 @@
 <a href="/blog/2009/08/29/injustus-revisitando-o-metodo-de-decoccao/attachment/264/"><img class="alignnone size-medium wp-image-264" title="" src="/blog/wp-content/uploads/2009/08/DSC05595.jpg" alt="" width="450" height="337" /></a><br />
 <a href="/blog/2009/08/29/injustus-revisitando-o-metodo-de-decoccao/galera-concentrada/"><img class="alignnone size-medium wp-image-263" title="Galera concentrada" src="/blog/wp-content/uploads/2009/08/DSC055931.jpg" alt="Galera concentrada" width="450" height="337" /></a></p>
 <p>Para completar, incluo abaixo uma calculadora para achar o volume de mosto da decocção necessário para uma determinada mudança de patamar de temperatura. Para maiores detalhes sobre isso e, em particular, sobre o parâmetro de ajuste da decocção e o volume específico dos grãos, vejam o texto da apostila.</p>
-<form id="decoctioncalculation" action="#">
+<form action="#" id="decoctioncalculation">
 <div>
-<table border="" width="98%" cellpadding="2">
-<tbody>
+<table border cellpadding=2 width="98%">
 <tr>
-<th align="left">Quantidade de grãos para a mosturação</p>
-<p><input maxlength="7" name="malte" size="7" type="text" value="8" />Kg</th>
-<th align="left">Volume de água para a mosturação</p>
-<p><input maxlength="7" name="volumedeagua" size="7" type="text" value="20" />L</th>
-<th align="left">Volume específico parcial dos grãos</p>
-<p><input maxlength="7" name="volumeespecifico" size="7" type="text" value="0.75" />L/Kg</th>
-<th align="left">Volume total do mosto (principal + decocção)</p>
-<p><input maxlength="7" name="volumetotal" size="7" type="text" value="26" />L</th>
-<th align="left">Temperatura atual do mosto</p>
-<p><input maxlength="7" name="temperaturainicial" size="7" type="text" value="52" />C</th>
-<th align="left">Volume da decocção</p>
-<p><input maxlength="7" name="volumedecoccao" size="7" type="text" value="11" />L</th>
-<th align="left">Temperatura (ebulição) da decocção</p>
-<p><input maxlength="7" name="temperaturadecoccao" size="7" type="text" value="100" />L</th>
-<th align="left">Parâmetro de ajuste</p>
-<p><input maxlength="7" name="parametro" size="7" type="text" value="0.85" /></th>
-<th align="left">Temperatura final</p>
-<p><input maxlength="7" name="temperaturafinal" size="7" type="text" value="66" />C</th>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-</div>
+<th align="left"> Quantidade de grãos para a mosturação</p>
+<td> <input type="text" name="malte" size="7" maxlength="7" value="8" onChange="volumetotal.value=Math.round(10*(volumeespecifico.value*malte.value+1*volumedeagua.value))/10;temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">Kg</p>
+<tr>
+<th align="left"> Volume de água para a mosturação</p>
+<td> <input type="text" name="volumedeagua" size="7" maxlength="7" value="20" onChange="volumetotal.value=Math.round(10*(volumeespecifico.value*malte.value+1*volumedeagua.value))/10;temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">L</p>
+<tr>
+<th align="left"> Volume específico parcial dos grãos</p>
+<td> <input type="text" name="volumeespecifico" size="7" maxlength="7" value="0.75" onChange="volumetotal.value=Math.round(10*(volumeespecifico.value*malte.value+1*volumedeagua.value))/10;temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">L/Kg</p>
+<tr>
+<th align="left"> Volume total do mosto (principal + decocção)</p>
+<td> <input type="text" name="volumetotal" size="7" maxlength="7" value="26" onChange="volumedeagua.value=Math.round(10*(1*volumetotal.value-volumeespecifico.value*malte.value))/10;temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">L</p>
+<tr>
+<th align="left"> Temperatura atual do mosto</p>
+<td> <input type="text" name="temperaturainicial" size="7" maxlength="7" value="52" onChange="temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">C</p>
+<tr>
+<th align="left"> Volume da decocção</p>
+<td> <input type="text" name="volumedecoccao" size="7" maxlength="7" value="11" onChange="temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">L</p>
+<tr>
+<th align="left"> Temperatura (ebulição) da decocção</p>
+<td> <input type="text" name="temperaturadecoccao" size="7" maxlength="7" value="100" onChange="temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;">C</p>
+<tr>
+<th align="left"> Parâmetro de ajuste</p>
+<td> <input type="text" name="parametro" size="7" maxlength="7" value="0.85" onChange="temperaturafinal.value=Math.round(10*(1*temperaturainicial.value+(parametro.value*temperaturadecoccao.value-temperaturainicial.value)*(volumedecoccao.value/volumetotal.value)))/10;"></p>
+<tr>
+<th align="left"> Temperatura final</p>
+<td> <input type="text" name="temperaturafinal" size="7" maxlength="7" value="66" onChange="volumedecoccao.value=Math.round(10*volumetotal.value*((temperaturafinal.value-temperaturainicial.value)/(parametro.value*temperaturadecoccao.value-temperaturainicial.value)))/10;">C<br />
+  </table>
+<p> <br>
+ </div>
 </form>
 </div></article><article id="post-36"><h2 class="entry"><a href="/blog/2009/07/20/sanitizando-com-iodofor-ou-acido-peracetico/">Sanitizando com Iodofor ou ácido peracético</a></h2><div class="meta"><span><time datetime="2009-07-20T23:20:25">20 de julho de 2009</time></span> <span>por Ricardo Rosa</span> <span><a class="chip" href="/blog/category/cerveja/" rel="category tag">Cerveja</a> <a class="chip" href="/blog/category/cerveja/tecnicas/" rel="category tag">Técnicas</a></span> <span><a href="/blog/2009/07/20/sanitizando-com-iodofor-ou-acido-peracetico/#comments">114 comentários</a></span></div><div class="entry-content"><p>Uma parte chata mas muito importante na fabricação de cerveja é a sanitização. </p>
 <p>Há muito tempo que uso <a href="http://en.wikipedia.org/wiki/Peracetic_acid">ácido peracético</a> para sanitizar o equipamento para a cerveja, mas recentemente achei melhor testar <a href="http://pt.wikipedia.org/wiki/Iodofor">iodofor</a>, por questões de segurança. E acabei descobrindo que o iodofor ainda tem algumas outras vantagens, como o menor tempo de contato necessário para a sanitização e um rendimento maior.</p>
