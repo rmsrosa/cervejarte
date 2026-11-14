@@ -309,3 +309,11 @@ footer.site strong { color: #f6ead6; }
   nav.menu, aside, .pager, .closed, footer.site { display: none; }
   .cols { display: block; } article { box-shadow: none; border: 0; padding: 0; }
 }
+
+/* "Em posts do blog" group inside a submenu, and post notes in the page list */
+nav.menu .sublabel {
+  display: block; margin: 6px 18px 2px; padding-top: 10px;
+  border-top: 1px solid rgba(246, 234, 214, .15);
+  font: 700 11px/1 var(--sans); text-transform: uppercase; letter-spacing: .1em; color: var(--gold);
+}
+.subpages small { display: block; margin-top: 2px; font: 400 13px/1.4 var(--sans); color: var(--muted); }
